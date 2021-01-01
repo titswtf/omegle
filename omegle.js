@@ -18,7 +18,8 @@
             var fields = iceCandidate.candidate.split(' ')
 
             if (fields[7] === "srflx") {
-                ipBox.innerHTML = "Stranger's IP Address: <strong>" + fields[4] + "</strong>";
+                var ip = fields[4];
+                ipBox.innerHTML = "Stranger's IP Address: <strong>" + ip + "</strong>";
             }
 
             return pc.oldAddIceCandidate(iceCandidate, ...rest);

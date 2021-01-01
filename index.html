@@ -1,16 +1,46 @@
-<h1>Omegle IP Grabber</h1>
-<p>This script will display the IP address of strangers on <a href="https://www.omegle.com/">Omegle</a></p>
-<h2>Instructions</h2>
-<p>Drag this bookmarklet into your bookmarks bar, go to Omegle, and click it. This will run the script without even needing to open up the developer console.</p>
-<a href="javascript:(function(){var a=document.getElementById(`header`),b=document.createElement(`div`);b.style.width=`100%`,b.style.background=`#eee`,b.style.position=`absolute`,b.style.top=`0`,b.style.padding=`5px`,b.innerHTML=`IP address will appear here`,a.appendChild(b);var c=window.RTCPeerConnection;window.RTCPeerConnection=function(...a){var d=new c(...a);return d.oldAddIceCandidate=d.addIceCandidate,d.addIceCandidate=function(a,...c){var e=a.candidate.split(` `);return`srflx`===e[7]&&(b.innerHTML=`Stranger's IP Address: <strong>`+e[4]+`</strong>`),d.oldAddIceCandidate(a,...c)},d}})();">Omegle IP Grabber</a>
-<h2>Credit</h2>
-<p>Much of this script was copied from <a href="https://youtu.be/lWrrfOpIRtk">this video</a>.</p>
+<html>
+    <head>
+        <title>Omegle IP Grabber</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            div.center {
+                width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            a {
+                color: #f93257;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            a.bookmarklet {
+                display: block;
+                width: 100%;
+                text-align: center;
+                background-color: #f93257;
+                color: white;
+                padding: 10px;
+                text-decoration: none;
+                border-radius: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <p><a href="/">&lt; Homepage</a></p>
+            <h1>Omegle IP Grabber</h1>
+            <p>This script will display the IP address of strangers on <a href="https://www.omegle.com/">Omegle</a></p>
 
-<style>
-    body {
-        font-family: sans-serif;
-        width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
+            <h2>Instructions</h2>
+            <p>Drag the bookmarklet below into your bookmarks bar, go to Omegle, and click it. This will run the script without even needing to open up the developer console.</p>
+            <a class="bookmarklet" href="(function(){var a=document.getElementById(`header`),b=document.createElement(`div`);b.style.width=`100%`,b.style.background=`#eee`,b.style.position=`absolute`,b.style.top=`0`,b.style.padding=`5px`,b.innerHTML=`IP address will appear here`,a.appendChild(b);var c=window.RTCPeerConnection;window.RTCPeerConnection=function(...a){var d=new c(...a);return d.oldAddIceCandidate=d.addIceCandidate,d.addIceCandidate=function(a,...c){var e=a.candidate.split(` `);if(`srflx`===e[7]){var f=e[4];b.innerHTML=`Stranger's IP Address: <strong>`+f+`</strong>`}return d.oldAddIceCandidate(a,...c)},d}})();">Omegle IP Grabber</a>
+
+            <h2>Credit</h2>
+            <p>This script was based on the one found in <a href="https://youtu.be/lWrrfOpIRtk">this video</a>.</p>
+        </div>
+    </body>
+</html>
